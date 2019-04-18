@@ -22,7 +22,7 @@ class App extends React.Component {
       React.createElement(Pet, {
         name: "Pepper",
         animal: "bird",
-        breed: "Cokatiel"
+        breed: "Cockatiel"
       }),
       React.createElement(Pet, {
         name: "Doink",
