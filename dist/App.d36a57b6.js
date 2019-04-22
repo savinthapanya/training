@@ -25823,7 +25823,7 @@ function (_React$Component) {
       }), _react.default.createElement(_Pet.default, {
         name: "Pepper",
         animal: "bird",
-        breed: "Cokatiel"
+        breed: "Cockatiel"
       }), _react.default.createElement(_Pet.default, {
         name: "Doink",
         animal: "cat",
@@ -25864,7 +25864,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53823" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61887" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
