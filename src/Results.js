@@ -17,7 +17,6 @@ class Results extends React.Component {
   }
 
   componentDidMount() {
-    console.log(petfinder.pet);
     petfinder.pet
       .find({ output: "full", location: "Seattle, WA" })
       .then(data => {
@@ -30,7 +29,7 @@ class Results extends React.Component {
             pets = [data.petfinder.pets.pet];
           }
         } else {
-          pet = [];
+          pets = [];
         }
 
         this.setState({ pets });
