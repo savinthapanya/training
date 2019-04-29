@@ -1,5 +1,6 @@
 import React from "react";
 import pf from "petfinder-client";
+import { Consumer } from "./SearchContext";
 import Pet from "./Pet";
 import SearchBox from "./SearchBox";
 
@@ -18,8 +19,17 @@ class Results extends React.Component {
   }
 
   componentDidMount() {
+    this.search();
+  }
+
+  search = () => {
     petfinder.pet
-      .find({ output: "full", location: "Seattle, WA" })
+      .find({
+        output: "full",
+        location: this.props.searchParams.location,
+        animal: this.props.searchParams.animal,
+        breed: this.props.searchParams.breed
+      })
       .then(data => {
         let pets;
 
@@ -39,32 +49,38 @@ class Results extends React.Component {
 
   render() {
     return (
-        <div className="search">
-        <SearchBox />
-          {this.state.pets.map( pet => {
-            let breed;
+      <div className="search">
+        <SearchBox search={this.search} />
+        {this.state.pets.map(pet => {
+          let breed;
 
-            if (Array.isArray(pet.breeds.breed)) {
-              breed = pet.breeds.breed.join(", ");
-            } else {
-              breed = pet.breeds.breed;
-            }
+          if (Array.isArray(pet.breeds.breed)) {
+            breed = pet.breeds.breed.join(", ");
+          } else {
+            breed = pet.breeds.breed;
+          }
 
-            return (
-              <Pet
-                key={pet.id}
-                animal={pet.animal}
-                name={pet.name}
-                breed={breed}
-                media={pet.media}
-                location={`${pet.contact.city}, ${pet.contact.state}`}
-                id={pet.id}
-              />
-            );
-          })}
-        </div>
+          return (
+            <Pet
+              key={pet.id}
+              animal={pet.animal}
+              name={pet.name}
+              breed={breed}
+              media={pet.media}
+              location={`${pet.contact.city}, ${pet.contact.state}`}
+              id={pet.id}
+            />
+          );
+        })}
+      </div>
     );
   }
 }
 
-export default Results;
+export default function ResultsWithContext(props) {
+  return (
+    <Consumer>
+      {context => <Results {...props} searchParams={context} />}
+    </Consumer>
+  );
+}
