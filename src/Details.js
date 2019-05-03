@@ -14,7 +14,7 @@ class Details extends React.Component {
     showModal: true
   };
 
-  toggleModal = () => this.setState({ showModal: !this.state.modal });
+  toggleModal = () => this.setState({ showModal: !this.state.showModal });
 
   componentDidMount() {
     petfinder.pet
