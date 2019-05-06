@@ -6,7 +6,7 @@
     "start": "parcel src/index.html",
     "build": "parcel build src/index.html",
     "format": "prettier --write \"src/**/*.{js, jsx, css, json}\"",
-    "formate:check": "prettier --list-different \"src/**/*.{js, jsx, css, json}\"",
+    "format:check": "prettier --list-different \"src/**/*.{js, jsx, css, json}\"",
     "lint": "eslint \"**/*.{js, jsx}\"",
     "test": "jest",
     "test:update": "jest -u",
@@ -43,9 +43,13 @@
     "react-test-renderer": "^16.8.6"
   },
   "dependencies": {
+    "@emotion/core": "^10.0.10",
+    "@emotion/styled": "^10.0.10",
     "@reach/router": "^1.2.1",
+    "emotion": "^10.0.9",
     "petfinder-client": "^1.0.2",
     "react": "15.x || 16.x || 16.4.0-alpha.0911da3",
-    "react-dom": "15.x || 16.x || 16.4.0-alpha.0911da3"
+    "react-dom": "15.x || 16.x || 16.4.0-alpha.0911da3",
+    "react-emotion": "^10.0.0"
   }
 }
