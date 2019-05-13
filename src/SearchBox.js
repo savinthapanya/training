@@ -28,7 +28,7 @@ class SearchBox extends Component {
             Animal
             <select
               onChange={this.props.handleAnimalChange}
-              onBlur={this.props.handleAnimalChange}
+              // onBlur={this.props.handleAnimalChange}
               id="animal"
               value={this.props.animal}
             >
@@ -45,7 +45,7 @@ class SearchBox extends Component {
             <select
               disabled={!this.props.breeds.length}
               onChange={this.props.handleBreedChange}
-              onBlur={this.props.handleBreedChange}
+              // onBlur={this.props.handleBreedChange}
               id="breed"
               value={this.props.breed}
             >
